@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sísifo Gym - Pases</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+    <header class="cabecera">
+        <div class="cabecera__interior contenedor">
+            <a class="cabecera__logo-enlace" href="index.html">
+                <img class="cabecera__logo" src="assets/img/logo.png" alt="Logo Sísifo Gym">
+            </a>
+            <nav class="navegacion" aria-label="Navegación principal">
+                <ul class="navegacion__lista">
+                    <li><a class="navegacion__enlace" href="index.html">Inicio</a></li>
+                    <li><a class="navegacion__enlace" href="clases.html">Clases</a></li>
+                    <li><a class="navegacion__enlace navegacion__enlace--activo" href="pases.html" aria-current="page">Pases</a></li>
+                    <li><a class="navegacion__enlace" href="contacto.html">Contacto</a></li>
+                    <li><a class="navegacion__enlace" href="mi-cuenta.html">Mi Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="principal" id="contenido">
+
+        <div class="encabezado-pagina">
+            <div class="contenedor">
+                <h1>Planes y Membresías</h1>
+            </div>
+        </div>
+
+        <section class="seccion">
+            <div class="contenedor">
+                <table class="tabla-pases">
+                    <caption class="visualmente-oculto">Planes de Sísifo Gym con su acceso y precio</caption>
+                    <thead class="tabla-pases__cabecera">
+                        <tr>
+                            <th class="tabla-pases__encabezado" scope="col">Plan</th>
+                            <th class="tabla-pases__encabezado" scope="col">Acceso</th>
+                            <th class="tabla-pases__encabezado" scope="col">Precio</th>
+                            <th class="tabla-pases__encabezado" scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tabla-pases__fila">
+                            <td class="tabla-pases__celda" data-label="Plan">Pase Inicial</td>
+                            <td class="tabla-pases__celda" data-label="Acceso">8 Clases al mes</td>
+                            <td class="tabla-pases__celda tabla-pases__celda--precio" data-label="Precio">$18.000 ARS</td>
+                            <td class="tabla-pases__celda" data-label="Acción"><button class="boton" type="button">Comprar</button></td>
+                        </tr>
+                        <tr class="tabla-pases__fila">
+                            <td class="tabla-pases__celda" data-label="Plan">Pase Libre Full</td>
+                            <td class="tabla-pases__celda" data-label="Acceso">Acceso Ilimitado</td>
+                            <td class="tabla-pases__celda tabla-pases__celda--precio" data-label="Precio">$28.000 ARS</td>
+                            <td class="tabla-pases__celda" data-label="Acción"><button class="boton" type="button">Comprar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <p class="pie__texto">&copy; 2026 Sísifo Gym. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

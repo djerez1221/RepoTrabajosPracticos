@@ -1,0 +1,698 @@
+/* ==========================================================================
+   Sísifo Gym - Hoja de estilos única (SP3)
+   Índice: 1. Base | 2. Layout | 3. Componentes
+   Nomenclatura: BEM en español -> bloque__elemento--modificador (kebab-case)
+   Breakpoints (mobile first):  40em = 640px | 48em = 768px | 64em = 1024px
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. BASE
+   ========================================================================== */
+
+/* --- variables --- */
+/* Tokens de diseño: único lugar donde se definen colores, fuentes y espacios */
+:root {
+  /* Paleta base */
+  --color-piedra-900: #1d232a;
+  --color-piedra-700: #3a4450;
+  --color-piedra-500: #66717e;
+  --color-piedra-300: #c5cbd3;
+  --color-niebla-100: #eef1f4;
+  --color-blanco: #ffffff;
+  --color-egeo-700: #174a6e;
+  --color-egeo-600: #1e5f8c;
+  --color-sol-500: #f2b632;
+  --color-sol-100: #fdecc0;
+  --color-error: #b3261e;
+
+  /* Roles (usar siempre estos en los componentes) */
+  --color-fondo: var(--color-niebla-100);
+  --color-superficie: var(--color-blanco);
+  --color-texto: var(--color-piedra-900);
+  --color-texto-suave: var(--color-piedra-500);
+  --color-borde: var(--color-piedra-300);
+  --color-primario: var(--color-egeo-600);
+  --color-primario-hover: var(--color-egeo-700);
+  --color-acento: var(--color-sol-500);
+  --color-foco: var(--color-egeo-600);
+
+  /* Tipografía */
+  --fuente-titulos: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --fuente-texto: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Espaciado (escala base 4px) */
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 0.75rem;
+  --espacio-4: 1rem;
+  --espacio-5: 1.5rem;
+  --espacio-6: 2rem;
+  --espacio-7: 3rem;
+  --espacio-8: 4.5rem;
+
+  /* Otros */
+  --radio: 0.25rem;
+  --ancho-contenedor: 75rem;
+  --transicion: 150ms ease;
+}
+
+/* --- reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, p, ul, ol, dl, dd, figure {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-foco);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Utilidad: oculta visualmente pero mantiene el contenido para lectores de pantalla */
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- tipografia --- */
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+/* Escala tipográfica fluida: crece con el ancho de pantalla */
+h1 { font-size: clamp(2.5rem, 6vw, 3.75rem); }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+h3 { font-size: 1.625rem; }
+
+p { max-width: 65ch; }
+
+a {
+  color: var(--color-primario);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--color-primario-hover);
+}
+
+
+/* ==========================================================================
+   2. LAYOUT (estructura de página)
+   ========================================================================== */
+
+/* --- estructura --- */
+/* Estructura general: el pie siempre queda al final aunque haya poco contenido */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.principal {
+  flex: 1;
+}
+
+.contenedor {
+  width: min(100% - 2rem, var(--ancho-contenedor));
+  margin-inline: auto;
+}
+
+.salto-contenido {
+  position: absolute;
+  top: -4rem;
+  left: var(--espacio-4);
+  z-index: 10;
+  padding: var(--espacio-2) var(--espacio-4);
+  background: var(--color-piedra-900);
+  color: var(--color-blanco);
+  border-radius: var(--radio);
+}
+
+.salto-contenido:focus {
+  top: var(--espacio-2);
+}
+
+.encabezado-pagina {
+  background: var(--color-superficie);
+  border-bottom: 1px solid var(--color-borde);
+  padding-block: var(--espacio-6);
+}
+
+.seccion {
+  padding-block: var(--espacio-6);
+}
+
+.seccion__titulo {
+  margin-bottom: var(--espacio-5);
+}
+
+@media (min-width: 64em) {
+  .encabezado-pagina { padding-block: var(--espacio-7); }
+  .seccion { padding-block: var(--espacio-7); }
+}
+
+/* --- cabecera --- */
+/* Mobile first: logo arriba, menú debajo; en escritorio van en una sola fila */
+.cabecera {
+  background: var(--color-superficie);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.cabecera__interior {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding-block: var(--espacio-3);
+}
+
+.cabecera__logo-enlace {
+  display: inline-block;
+  line-height: 0;
+}
+
+.cabecera__logo {
+  height: 3rem;
+  width: auto;
+}
+
+.navegacion__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espacio-1) var(--espacio-2);
+}
+
+.navegacion__enlace {
+  display: block;
+  padding: var(--espacio-2) var(--espacio-3);
+  font-weight: 600;
+  color: var(--color-texto);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: border-color var(--transicion), color var(--transicion);
+}
+
+.navegacion__enlace:hover {
+  color: var(--color-primario);
+  border-bottom-color: var(--color-borde);
+}
+
+.navegacion__enlace--activo {
+  color: var(--color-primario);
+  border-bottom-color: var(--color-acento);
+}
+
+@media (min-width: 48em) {
+  .cabecera__interior {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cabecera__logo { height: 3.5rem; }
+  .navegacion__lista { gap: var(--espacio-2); }
+  .navegacion__enlace { padding-inline: var(--espacio-4); }
+}
+
+/* --- pie --- */
+.pie {
+  background: var(--color-piedra-900);
+  color: var(--color-piedra-300);
+  padding-block: var(--espacio-5);
+  font-size: 0.9375rem;
+}
+
+.pie__texto {
+  max-width: none;
+}
+
+
+/* ==========================================================================
+   3. COMPONENTES (bloques reutilizables)
+   ========================================================================== */
+
+/* --- boton --- */
+/* Bloque .boton (sirve para <button> y <a>) | Modificadores: --acento, --secundario, --peligro */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: var(--espacio-2) var(--espacio-5);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-blanco);
+  background: var(--color-primario);
+  border: 2px solid var(--color-primario);
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: background-color var(--transicion), color var(--transicion), border-color var(--transicion);
+}
+
+.boton:hover {
+  color: var(--color-blanco);
+  background: var(--color-primario-hover);
+  border-color: var(--color-primario-hover);
+}
+
+.boton--acento {
+  color: var(--color-piedra-900);
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+}
+
+.boton--acento:hover {
+  color: var(--color-piedra-900);
+  background: #f7c95e;
+  border-color: #f7c95e;
+}
+
+.boton--secundario {
+  color: var(--color-primario);
+  background: transparent;
+}
+
+.boton--secundario:hover {
+  color: var(--color-blanco);
+}
+
+.boton--peligro {
+  color: var(--color-error);
+  background: transparent;
+  border-color: var(--color-error);
+}
+
+.boton--peligro:hover {
+  color: var(--color-blanco);
+  background: var(--color-error);
+  border-color: var(--color-error);
+}
+
+.boton--bloque {
+  width: 100%;
+}
+
+@media (min-width: 40em) {
+  .boton--bloque { width: auto; }
+}
+
+/* --- formulario --- */
+/* Bloque .formulario | Modificadores: --horizontal (filtros), --contacto */
+.formulario {
+  display: grid;
+  gap: var(--espacio-4);
+}
+
+.formulario__campo {
+  display: grid;
+  gap: var(--espacio-1);
+}
+
+.formulario__etiqueta {
+  font-weight: 600;
+}
+
+.formulario__control {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--espacio-2) var(--espacio-3);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-piedra-500);
+  border-radius: var(--radio);
+}
+
+.formulario__control:focus-visible {
+  border-color: var(--color-primario);
+}
+
+.formulario__control--texto {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.formulario__boton {
+  justify-self: start;
+}
+
+.formulario--contacto {
+  max-width: 36rem;
+}
+
+@media (min-width: 48em) {
+  .formulario--horizontal {
+    grid-template-columns: repeat(2, minmax(0, 14rem)) auto;
+    align-items: end;
+  }
+}
+
+/* --- hero --- */
+/* Bloque .hero (portada). El elemento memorable: la roca de Sísifo subiendo la pendiente */
+.hero {
+  --hero-pendiente: clamp(2.5rem, 9vw, 8rem);
+
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--espacio-7);
+  padding-bottom: calc(var(--hero-pendiente) + var(--espacio-7) + 7rem);
+  color: var(--color-blanco);
+  background: var(--color-piedra-900);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--hero-pendiente)), 0 100%);
+  --color-foco: var(--color-acento);
+}
+
+.hero__contenido {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--espacio-4);
+  justify-items: start;
+}
+
+.hero__titulo {
+  font-size: clamp(3.5rem, 13vw, 8rem);
+  line-height: 0.95;
+}
+
+.hero__lema {
+  max-width: 22ch;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.3;
+  color: var(--color-piedra-300);
+}
+
+.hero__roca {
+  position: absolute;
+  right: 6%;
+  bottom: calc(var(--hero-pendiente) * 0.85);
+  width: clamp(6rem, 22vw, 17rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, var(--color-piedra-500) 0%, var(--color-piedra-700) 45%, #2a323b 100%);
+  box-shadow: inset -0.6rem -0.8rem 1.4rem rgb(0 0 0 / 0.35);
+}
+
+@media (min-width: 64em) {
+  .hero {
+    padding-top: var(--espacio-8);
+    padding-bottom: calc(var(--hero-pendiente) + var(--espacio-8));
+  }
+
+  .hero__roca { right: 12%; }
+}
+
+/* --- beneficios --- */
+/* Bloque .beneficios: una columna en móvil, tres en escritorio */
+.beneficios__lista {
+  display: grid;
+  gap: var(--espacio-5);
+}
+
+.beneficios__item {
+  padding-top: var(--espacio-3);
+  font-size: 1.1875rem;
+  border-top: 4px solid var(--color-primario);
+}
+
+@media (min-width: 48em) {
+  .beneficios__lista {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-6);
+  }
+}
+
+/* --- tarjeta-clase --- */
+/* Bloque .catalogo (grilla) y .tarjeta-clase (cada clase) | Modificador: __cupos--pocos */
+.clases {
+  display: grid;
+  gap: var(--espacio-6);
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--espacio-5);
+}
+
+.tarjeta-clase {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+}
+
+.tarjeta-clase__imagen {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.tarjeta-clase__cuerpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  padding: var(--espacio-4);
+}
+
+.tarjeta-clase__titulo {
+  margin-bottom: var(--espacio-1);
+}
+
+.tarjeta-clase__cupos {
+  align-self: flex-start;
+  padding: 0 var(--espacio-3);
+  font-weight: 600;
+  background: var(--color-niebla-100);
+  border-radius: var(--radio);
+}
+
+.tarjeta-clase__cupos--pocos {
+  background: var(--color-sol-100);
+}
+
+.tarjeta-clase__boton {
+  margin-top: auto;
+}
+
+@media (min-width: 64em) {
+  .clases {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+
+  .clases__resumen {
+    position: sticky;
+    top: var(--espacio-4);
+  }
+}
+
+/* --- resumen-reservas --- */
+/* Bloque .resumen-reservas (panel lateral de la página Clases) */
+.resumen-reservas {
+  padding: var(--espacio-5);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-left: 6px solid var(--color-acento);
+  border-radius: var(--radio);
+}
+
+.resumen-reservas__titulo {
+  margin-bottom: var(--espacio-3);
+  font-size: 1.75rem;
+}
+
+.resumen-reservas__lista {
+  margin-bottom: var(--espacio-3);
+}
+
+.resumen-reservas__item {
+  padding-block: var(--espacio-2);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.resumen-reservas__total {
+  margin-bottom: var(--espacio-4);
+  font-weight: 600;
+}
+
+/* --- tabla-pases --- */
+/* Bloque .tabla-pases: tabla en escritorio, tarjetas apiladas en móvil (usa data-label) */
+.tabla-pases {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-superficie);
+}
+
+.tabla-pases__encabezado {
+  padding: var(--espacio-3) var(--espacio-4);
+  text-align: left;
+  color: var(--color-blanco);
+  background: var(--color-piedra-900);
+}
+
+.tabla-pases__celda {
+  padding: var(--espacio-3) var(--espacio-4);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.tabla-pases__celda--precio {
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Móvil: cada fila pasa a ser un bloque con "Etiqueta: valor" */
+@media (max-width: 47.99em) {
+  .tabla-pases,
+  .tabla-pases tbody {
+    display: block;
+    background: transparent;
+  }
+
+  .tabla-pases__fila {
+    background: var(--color-superficie);
+  }
+
+  .tabla-pases__cabecera {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .tabla-pases__fila {
+    display: block;
+    margin-bottom: var(--espacio-4);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+  }
+
+  .tabla-pases__celda {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--espacio-4);
+  }
+
+  .tabla-pases__celda:last-child { border-bottom: 0; }
+
+  .tabla-pases__celda::before {
+    content: attr(data-label);
+    font-family: var(--fuente-texto);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-texto-suave);
+  }
+}
+
+/* --- cuenta --- */
+/* Bloques .datos-usuario y .lista-reservas (página Mi Cuenta) */
+.cuenta {
+  display: grid;
+  gap: var(--espacio-6);
+}
+
+.datos-usuario {
+  display: grid;
+  gap: var(--espacio-3);
+  padding: var(--espacio-5);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+}
+
+.datos-usuario__etiqueta {
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+.datos-usuario__valor {
+  font-size: 1.25rem;
+}
+
+.lista-reservas__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  padding: var(--espacio-4);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+}
+
+@media (min-width: 48em) {
+  .datos-usuario {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- contacto --- */
+/* Bloque .contacto (página Contacto): formulario y ubicación */
+.contacto {
+  display: grid;
+  gap: var(--espacio-6);
+}
+
+@media (min-width: 64em) {
+  .contacto {
+    grid-template-columns: 3fr 2fr;
+  }
+}

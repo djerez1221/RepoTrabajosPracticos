@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sísifo Gym - Clases</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+    <header class="cabecera">
+        <div class="cabecera__interior contenedor">
+            <a class="cabecera__logo-enlace" href="index.html">
+                <img class="cabecera__logo" src="assets/img/logo.png" alt="Logo Sísifo Gym">
+            </a>
+            <nav class="navegacion" aria-label="Navegación principal">
+                <ul class="navegacion__lista">
+                    <li><a class="navegacion__enlace" href="index.html">Inicio</a></li>
+                    <li><a class="navegacion__enlace navegacion__enlace--activo" href="clases.html" aria-current="page">Clases</a></li>
+                    <li><a class="navegacion__enlace" href="pases.html">Pases</a></li>
+                    <li><a class="navegacion__enlace" href="contacto.html">Contacto</a></li>
+                    <li><a class="navegacion__enlace" href="mi-cuenta.html">Mi Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="principal" id="contenido">
+
+        <div class="encabezado-pagina">
+            <div class="contenedor">
+                <h1>Catálogo de Clases</h1>
+            </div>
+        </div>
+
+        <section class="seccion" aria-labelledby="filtros-titulo">
+            <div class="contenedor">
+                <h2 class="seccion__titulo" id="filtros-titulo">Filtrar Clases</h2>
+                <form class="formulario formulario--horizontal">
+                    <div class="formulario__campo">
+                        <label class="formulario__etiqueta" for="filtro-disciplina">Disciplina:</label>
+                        <select class="formulario__control" id="filtro-disciplina" name="disciplina">
+                            <option value="todas">Todas</option>
+                            <option value="crossfit">CrossFit</option>
+                            <option value="yoga">Yoga</option>
+                        </select>
+                    </div>
+
+                    <div class="formulario__campo">
+                        <label class="formulario__etiqueta" for="filtro-dia">Día:</label>
+                        <select class="formulario__control" id="filtro-dia" name="dia">
+                            <option value="todos">Todos</option>
+                            <option value="lunes">Lunes</option>
+                            <option value="martes">Martes</option>
+                        </select>
+                    </div>
+
+                    <button class="boton formulario__boton" type="submit">Buscar</button>
+                </form>
+            </div>
+        </section>
+
+        <div class="clases seccion contenedor">
+            <section class="clases__catalogo" aria-labelledby="catalogo-titulo">
+                <h2 class="seccion__titulo" id="catalogo-titulo">Clases Disponibles</h2>
+                <div class="catalogo">
+                    <article class="tarjeta-clase">
+                        <img class="tarjeta-clase__imagen" src="assets/img/crossfit.jpg" alt="CrossFit">
+                        <div class="tarjeta-clase__cuerpo">
+                            <h3 class="tarjeta-clase__titulo">CrossFit</h3>
+                            <p>Días: Lunes y Miércoles - 08:00 HS</p>
+                            <p>Profesor: Marcos Pérez</p>
+                            <p class="tarjeta-clase__cupos tarjeta-clase__cupos--pocos">Cupos: 4 de 15</p>
+                            <button class="boton tarjeta-clase__boton" type="button">Reservar Cupo</button>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta-clase">
+                        <img class="tarjeta-clase__imagen" src="assets/img/yoga.jpg" alt="Yoga">
+                        <div class="tarjeta-clase__cuerpo">
+                            <h3 class="tarjeta-clase__titulo">Yoga Integrativo</h3>
+                            <p>Días: Martes y Jueves - 09:00 HS</p>
+                            <p>Profesora: Valeria Gómez</p>
+                            <p class="tarjeta-clase__cupos tarjeta-clase__cupos--pocos">Cupos: 2 de 10</p>
+                            <button class="boton tarjeta-clase__boton" type="button">Reservar Cupo</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <aside class="clases__resumen resumen-reservas" aria-labelledby="resumen-titulo">
+                <h2 class="resumen-reservas__titulo" id="resumen-titulo">Tus Reservas Seleccionadas</h2>
+                <ul class="resumen-reservas__lista">
+                    <li class="resumen-reservas__item">CrossFit - Lunes 08:00 HS</li>
+                </ul>
+                <p class="resumen-reservas__total" aria-live="polite">Total: 1 reserva</p>
+                <a class="boton boton--acento" href="mi-cuenta.html">Confirmar Reserva</a>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <p class="pie__texto">&copy; 2026 Sísifo Gym. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

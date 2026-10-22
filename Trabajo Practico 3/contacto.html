@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sísifo Gym - Contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+    <header class="cabecera">
+        <div class="cabecera__interior contenedor">
+            <a class="cabecera__logo-enlace" href="index.html">
+                <img class="cabecera__logo" src="assets/img/logo.png" alt="Logo Sísifo Gym">
+            </a>
+            <nav class="navegacion" aria-label="Navegación principal">
+                <ul class="navegacion__lista">
+                    <li><a class="navegacion__enlace" href="index.html">Inicio</a></li>
+                    <li><a class="navegacion__enlace" href="clases.html">Clases</a></li>
+                    <li><a class="navegacion__enlace" href="pases.html">Pases</a></li>
+                    <li><a class="navegacion__enlace navegacion__enlace--activo" href="contacto.html" aria-current="page">Contacto</a></li>
+                    <li><a class="navegacion__enlace" href="mi-cuenta.html">Mi Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="principal" id="contenido">
+
+        <div class="encabezado-pagina">
+            <div class="contenedor">
+                <h1>Formulario de Contacto</h1>
+            </div>
+        </div>
+
+        <div class="contacto seccion contenedor">
+            <section aria-labelledby="form-titulo">
+                <h2 class="visualmente-oculto" id="form-titulo">Enviar un mensaje</h2>
+                <form class="formulario formulario--contacto" action="#" method="post">
+                    <div class="formulario__campo">
+                        <label class="formulario__etiqueta" for="contacto-nombre">Nombre:</label>
+                        <input class="formulario__control" type="text" id="contacto-nombre" name="nombre" autocomplete="name" required>
+                    </div>
+
+                    <div class="formulario__campo">
+                        <label class="formulario__etiqueta" for="contacto-email">Correo Electrónico:</label>
+                        <input class="formulario__control" type="email" id="contacto-email" name="email" autocomplete="email" required>
+                    </div>
+
+                    <div class="formulario__campo">
+                        <label class="formulario__etiqueta" for="contacto-mensaje">Mensaje:</label>
+                        <textarea class="formulario__control formulario__control--texto" id="contacto-mensaje" name="mensaje" rows="4" required></textarea>
+                    </div>
+
+                    <button class="boton boton--bloque formulario__boton" type="submit">Enviar</button>
+                </form>
+            </section>
+
+            <section aria-labelledby="ubicacion-titulo">
+                <h2 class="seccion__titulo" id="ubicacion-titulo">Ubicación</h2>
+                <p>Córdoba, Argentina</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <p class="pie__texto">&copy; 2026 Sísifo Gym. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
