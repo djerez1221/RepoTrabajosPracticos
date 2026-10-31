@@ -1,0 +1,6 @@
+{
+  "pases": [
+    { "id": "pase-inicial", "nombre": "Pase Inicial", "acceso": "8 Clases al mes", "precio": 18000, "moneda": "ARS" },
+    { "id": "pase-libre-full", "nombre": "Pase Libre Full", "acceso": "Acceso Ilimitado", "precio": 28000, "moneda": "ARS" }
+  ]
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sísifo Gym - Clases</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-pagina="clases">
+
+    <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+    <header class="cabecera">
+        <div class="cabecera__interior contenedor">
+            <a class="cabecera__logo-enlace" href="index.html">
+                <img class="cabecera__logo" src="assets/img/logo.png" alt="Logo Sísifo Gym">
+            </a>
+            <button class="cabecera__menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion-principal">
+                <span class="cabecera__menu-icono" aria-hidden="true"></span>
+                <span>Menú</span>
+            </button>
+            <nav class="navegacion" id="navegacion-principal" aria-label="Navegación principal">
+                <ul class="navegacion__lista">
+                    <li><a class="navegacion__enlace" href="index.html">Inicio</a></li>
+                    <li><a class="navegacion__enlace navegacion__enlace--activo" href="clases.html" aria-current="page">Clases</a></li>
+                    <li><a class="navegacion__enlace" href="pases.html">Pases</a></li>
+                    <li><a class="navegacion__enlace" href="contacto.html">Contacto</a></li>
+                    <li><a class="navegacion__enlace" href="mi-cuenta.html">Mi Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="principal" id="contenido">
+
+        <div class="encabezado-pagina">
+            <div class="contenedor">
+                <h1>Catálogo de Clases</h1>
+            </div>
+        </div>
+
+        <section class="seccion" aria-labelledby="filtros-titulo">
+            <div class="contenedor">
+                <h2 class="seccion__titulo" id="filtros-titulo">Filtrar Clases</h2>
+                <form class="formulario formulario--horizontal" id="filtros-form">
+                    <div class="formulario__campo">
+                        <label class="formulario__etiqueta" for="filtro-disciplina">Disciplina:</label>
+                        <select class="formulario__control" id="filtro-disciplina" name="disciplina">
+                            <option value="todas">Todas</option>
+                        </select>
+                    </div>
+
+                    <div class="formulario__campo">
+                        <label class="formulario__etiqueta" for="filtro-dia">Día:</label>
+                        <select class="formulario__control" id="filtro-dia" name="dia">
+                            <option value="todos">Todos</option>
+                        </select>
+                    </div>
+
+                    <div class="formulario__acciones">
+                        <button class="boton formulario__boton" type="submit">Buscar</button>
+                        <button class="boton boton--secundario formulario__boton" type="reset">Limpiar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <div class="clases seccion contenedor">
+            <section class="clases__catalogo" aria-labelledby="catalogo-titulo">
+                <h2 class="seccion__titulo" id="catalogo-titulo">Clases Disponibles</h2>
+                <p class="catalogo__resultados" id="catalogo-resultados" role="status"></p>
+                <div class="catalogo" id="catalogo">
+                    <noscript><p class="mensaje-estado mensaje-estado--error">Para ver y reservar clases necesitas activar JavaScript.</p></noscript>
+                </div>
+            </section>
+
+            <aside class="clases__resumen resumen-reservas" aria-labelledby="resumen-titulo">
+                <h2 class="resumen-reservas__titulo" id="resumen-titulo">Tus Reservas Seleccionadas</h2>
+                <ul class="resumen-reservas__lista" id="resumen-lista"></ul>
+                <p class="resumen-reservas__total" id="resumen-total" aria-live="polite">Total: 0 reservas</p>
+                <button class="boton boton--acento" id="resumen-confirmar" type="button" disabled>Confirmar Reserva</button>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <p class="pie__texto">&copy; 2026 Sísifo Gym. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

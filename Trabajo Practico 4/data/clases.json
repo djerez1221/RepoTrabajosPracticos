@@ -1,0 +1,30 @@
+{
+  "disciplinas": [
+    { "id": "crossfit", "nombre": "CrossFit" },
+    { "id": "yoga", "nombre": "Yoga" }
+  ],
+  "clases": [
+    {
+      "id": "crossfit-0800",
+      "nombre": "CrossFit",
+      "disciplina": "crossfit",
+      "dias": ["lunes", "miercoles"],
+      "horario": "08:00",
+      "profesor": { "rol": "Profesor", "nombre": "Marcos Pérez" },
+      "cuposTotales": 15,
+      "cuposOcupados": { "lunes": 10, "miercoles": 8 },
+      "imagen": { "src": "assets/img/crossfit.jpg", "alt": "CrossFit" }
+    },
+    {
+      "id": "yoga-0900",
+      "nombre": "Yoga Integrativo",
+      "disciplina": "yoga",
+      "dias": ["martes", "jueves"],
+      "horario": "09:00",
+      "profesor": { "rol": "Profesora", "nombre": "Valeria Gómez" },
+      "cuposTotales": 10,
+      "cuposOcupados": { "martes": 8, "jueves": 6 },
+      "imagen": { "src": "assets/img/yoga.jpg", "alt": "Yoga" }
+    }
+  ]
+}

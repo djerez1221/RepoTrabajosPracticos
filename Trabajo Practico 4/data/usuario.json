@@ -1,0 +1,7 @@
+{
+  "nombre": "Mateo Rodríguez",
+  "planId": "pase-libre-full",
+  "reservas": [
+    { "claseId": "crossfit-0800", "dia": "lunes" }
+  ]
+}

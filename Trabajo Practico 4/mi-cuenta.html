@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sísifo Gym - Mi Cuenta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-pagina="cuenta">
+
+    <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+    <header class="cabecera">
+        <div class="cabecera__interior contenedor">
+            <a class="cabecera__logo-enlace" href="index.html">
+                <img class="cabecera__logo" src="assets/img/logo.png" alt="Logo Sísifo Gym">
+            </a>
+            <button class="cabecera__menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion-principal">
+                <span class="cabecera__menu-icono" aria-hidden="true"></span>
+                <span>Menú</span>
+            </button>
+            <nav class="navegacion" id="navegacion-principal" aria-label="Navegación principal">
+                <ul class="navegacion__lista">
+                    <li><a class="navegacion__enlace" href="index.html">Inicio</a></li>
+                    <li><a class="navegacion__enlace" href="clases.html">Clases</a></li>
+                    <li><a class="navegacion__enlace" href="pases.html">Pases</a></li>
+                    <li><a class="navegacion__enlace" href="contacto.html">Contacto</a></li>
+                    <li><a class="navegacion__enlace navegacion__enlace--activo" href="mi-cuenta.html" aria-current="page">Mi Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="principal" id="contenido">
+
+        <div class="encabezado-pagina">
+            <div class="contenedor">
+                <h1>Mi Cuenta</h1>
+            </div>
+        </div>
+
+        <div class="cuenta seccion contenedor">
+            <div class="cuenta__estado" id="cuenta-estado"></div>
+
+            <section aria-labelledby="datos-titulo">
+                <h2 class="seccion__titulo" id="datos-titulo">Datos del Usuario</h2>
+                <dl class="datos-usuario">
+                    <div class="datos-usuario__fila">
+                        <dt class="datos-usuario__etiqueta">Usuario</dt>
+                        <dd class="datos-usuario__valor" id="cuenta-usuario">Cargando...</dd>
+                    </div>
+                    <div class="datos-usuario__fila">
+                        <dt class="datos-usuario__etiqueta">Plan Activo</dt>
+                        <dd class="datos-usuario__valor" id="cuenta-plan">Cargando...</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section aria-labelledby="reservas-titulo">
+                <h2 class="seccion__titulo" id="reservas-titulo">Mis Reservas</h2>
+                <ul class="lista-reservas" id="reservas-lista">
+                    <noscript><li class="lista-reservas__vacio">Para ver tus reservas necesitas activar JavaScript.</li></noscript>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <p class="pie__texto">&copy; 2026 Sísifo Gym. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
